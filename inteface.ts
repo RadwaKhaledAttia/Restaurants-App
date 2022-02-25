@@ -6,6 +6,7 @@ export interface Branch {
 
 export interface Item {
     name: string
+    image: string
     description: string
     price: string
 }

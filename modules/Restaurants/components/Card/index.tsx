@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import Link from 'next/link'
 import { Card } from '@mui/material'
 import { Brand } from '../../../../inteface'
 import useStyles from './style'
@@ -13,9 +14,17 @@ const RestaurantCard: FC<Props> = ({ brand }) => {
   return (
     <Card className={classes.restaurantCardContainer}>
       <div className={classes.restaurantCardContent}>
-        <img src={brand.logo} alt={brand.name} />
+        <Link href={`/products/${brand.name}`}>
+          <a>
+            <img src={brand.logo} alt={brand.name} />
+          </a>
+        </Link>
         <div className={classes.restaurantCardRight}>
-          <h3>{brand.name}</h3>
+          <Link href={`/products/${brand.name}`}>
+            <a>
+              <h3>{brand.name}</h3>
+            </a>
+          </Link>
           <p>{brand.description}</p>
         </div>
       </div>
