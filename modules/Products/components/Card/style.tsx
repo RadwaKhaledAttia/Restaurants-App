@@ -41,7 +41,7 @@ const useStyles = makeStyles(() => ({
   },
   iconContianer: {
     position: 'absolute',
-    bottom: 0,
+    bottom: -20,
     right: 0,
     left: 0,
     opacity: 0,

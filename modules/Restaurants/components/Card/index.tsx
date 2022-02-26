@@ -10,7 +10,6 @@ interface Props {
 
 const RestaurantCard: FC<Props> = ({ brand }) => {
   const classes = useStyles()
-
   return (
     <Card className={classes.restaurantCardContainer}>
       <div className={classes.restaurantCardContent}>

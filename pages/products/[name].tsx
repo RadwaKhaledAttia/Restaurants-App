@@ -1,7 +1,7 @@
 import React from 'react'
 import type { NextPage } from 'next'
-import Products from '../../modules/Products'
+import ProductsComponent from '../../modules/Products'
 
-const products: NextPage = () => <Products />
+const products: NextPage = () => <ProductsComponent />
 
 export default products

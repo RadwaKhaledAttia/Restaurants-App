@@ -8,9 +8,8 @@ interface Props {
   product: Item
 }
 
-const RestaurantCard: FC<Props> = ({ product }) => {
+const ProductCard: FC<Props> = ({ product }) => {
   const classes = useStyles()
-
   return (
     <Card className={classes.productCardContainer}>
       <div className={classes.productCardContent}>
@@ -30,4 +29,4 @@ const RestaurantCard: FC<Props> = ({ product }) => {
   )
 }
 
-export default RestaurantCard
+export default ProductCard
