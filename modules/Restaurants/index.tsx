@@ -31,11 +31,11 @@ const Restaurants: FC = () => {
   return (
     <Container maxWidth="lg">
       <Grid container spacing={2}>
-        <Grid item lg={12}>
+        <Grid item lg={12} md={12} sm={12} xs={12}>
           <h1> Restaurants </h1>
         </Grid>
         {brands.map((brand: Brand) => (
-          <Grid item lg={12} key={brand?.name}>
+          <Grid item lg={12} md={12} sm={12} xs={12} key={brand?.name}>
             <Card brand={brand} />
           </Grid>
         ))}

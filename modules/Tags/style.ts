@@ -44,11 +44,11 @@ const useStyles = makeStyles(() => ({
       height: 6,
     },
     '&   .slick-next,.slick-prev ': {
-      top: '-15%',
+      top: 90,
     },
     '& .slick-prev': {
-      left: 'inherit',
-      right: 60,
+      right: 'inherit',
+      left: 0,
       marginRight: 20,
       '@media (max-width: 767px)': {
         right: 40,

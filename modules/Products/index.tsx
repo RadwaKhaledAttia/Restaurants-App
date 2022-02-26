@@ -46,7 +46,7 @@ const ProductsComponent: FC = () => {
       <Search />
       <Container maxWidth="lg">
         <Grid container spacing={2}>
-          <Grid item lg={12}>
+          <Grid item lg={12} md={12} sm={12} xs={12}>
             <div className={classes.productHeader}>
               <Link href="/">
                 <a>
@@ -56,12 +56,12 @@ const ProductsComponent: FC = () => {
               <h1> {name} </h1>
             </div>
           </Grid>
-          <Grid item lg={12}>
+          <Grid item lg={12} md={12} sm={12} xs={12}>
             <RestaurantInfo brand={brand} />
           </Grid>
           {products &&
             products.map(product => (
-              <Grid item lg={12} key={product.name}>
+              <Grid item lg={12} md={12} sm={12} xs={12} key={product.name}>
                 <Card product={product} />
               </Grid>
             ))}
