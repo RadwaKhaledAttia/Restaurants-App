@@ -29,7 +29,7 @@ const Search: FC<Props> = ({ setSearchValue }) => {
         justifyContent="center"
         alignItems="center"
       >
-        <Grid item lg={8}>
+        <Grid item lg={8} md={10} sm={10}>
           <div className={classes.searchContiner}>
             <div className="searchIcon">
               <SearchIcon />
