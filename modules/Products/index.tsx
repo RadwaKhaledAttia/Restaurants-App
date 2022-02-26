@@ -6,7 +6,8 @@ import { Container, Grid } from '@mui/material'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import data from '../../data.json'
 import Card from './components/Card'
-import { Item } from '../../inteface'
+import RestaurantInfo from './components/RestaurantInfo'
+import { Brand, Item } from '../../inteface'
 import Search from '../../common/Search'
 import { Store, useStore } from '../../store'
 import useStyles from './style'
@@ -15,11 +16,13 @@ const ProductsComponent: FC = () => {
   const { query } = useRouter()
   const { name } = query
   const [products, setProducts] = useState<Item[] | undefined>()
+  const [brand, setBrand] = useState<Brand | undefined>()
   const { searchInput } = useStore((state: Store) => state)
 
   const getTargetProducts = () => {
     const brand = data.brands.find(item => item.name === name)
     setProducts(brand?.items)
+    setBrand(brand)
   }
 
   useEffect(() => {
@@ -52,6 +55,9 @@ const ProductsComponent: FC = () => {
               </Link>
               <h1> {name} </h1>
             </div>
+          </Grid>
+          <Grid item lg={12}>
+            <RestaurantInfo brand={brand} />
           </Grid>
           {products &&
             products.map(product => (
