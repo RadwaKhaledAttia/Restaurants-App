@@ -33,6 +33,7 @@ const SamplePrevArrow: FC<Props> = props => {
 const MenuTags = () => {
   const [menuTags, setMenuTags] = useState<Tag[]>([])
   const [selectedTag, setSelectedTag] = useState<string | undefined>()
+
   useEffect(() => {
     const getTags = pluck('tags')
     const tags = getTags(data.brands)
@@ -41,7 +42,7 @@ const MenuTags = () => {
   const classes = useStyles()
   const settings = {
     dots: false,
-    infinite: false,
+    infinite: true,
     slidesToShow: 5,
     arrows: false,
     cssEase: 'ease',
@@ -51,7 +52,7 @@ const MenuTags = () => {
     autoplaySpeed: 2000,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1025,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
@@ -92,8 +93,6 @@ const MenuTags = () => {
       },
     ],
   }
-  console.log('tags', menuTags)
-
   return (
     <Container maxWidth="lg">
       <div className={classes.MenuTags}>

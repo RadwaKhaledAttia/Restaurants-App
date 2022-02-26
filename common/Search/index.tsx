@@ -2,22 +2,20 @@ import React, { FC, useState, useEffect, useCallback } from 'react'
 import debounce from 'lodash.debounce'
 import { Container, Grid } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
+import { Store, useStore } from '../../store'
 import useStyles from './style'
 
-interface Props {
-  setSearchValue: (value: string) => void
-}
-
-const Search: FC<Props> = ({ setSearchValue }) => {
+const Search: FC = () => {
+  const { setSearchInput } = useStore((state: Store) => state)
   const [inputValue, setInputValue] = useState('')
 
-  const getSearch = useCallback(debounce(setInputValue, 300), [
+  const getSearch = useCallback(debounce(setInputValue, 200), [
     inputValue,
     setInputValue,
   ])
 
   useEffect(() => {
-    setSearchValue(inputValue)
+    setSearchInput(inputValue)
   }, [inputValue])
 
   const classes = useStyles()

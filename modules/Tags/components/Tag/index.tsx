@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import useStyles from './style'
 import { Tag } from '../../../../inteface'
+import { Store, useStore } from '../../../../store'
 
 interface Props {
   item: Tag
@@ -9,11 +10,15 @@ interface Props {
 }
 
 const MenuTag: FC<Props> = ({ item, selectedTag, setSelectedTag }) => {
+  const { setSearchTag } = useStore((state: Store) => state)
   const classes = useStyles()
   return (
     <div
       className={selectedTag === item.name ? classes.MenuTagContainer : ''}
-      onClick={() => setSelectedTag(item.name)}
+      onClick={() => {
+        setSelectedTag(item.name)
+        setSearchTag(item.name)
+      }}
     >
       <div className={classes.MenuVarietiesItemImage} key={item.name}>
         <img src={item.image} alt={item.name} />

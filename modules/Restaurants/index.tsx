@@ -3,17 +3,30 @@ import { Container, Grid } from '@mui/material'
 import data from '../../data.json'
 import Card from './components/Card'
 import { Brand } from '../../inteface'
+import { Store, useStore } from '../../store'
 
-interface Props {
-  searchValue: string
-}
+const Restaurants: FC = () => {
+  const { searchTag, searchInput } = useStore((state: Store) => state)
 
-const Restaurants: FC<Props> = ({ searchValue }) => {
   const [brands, setBrands] = useState(data.brands)
 
   useEffect(() => {
-    setBrands([...data.brands].filter(item => item.name.toLowerCase().includes(searchValue)))
-  }, [searchValue])
+    setBrands(
+      [...data.brands].filter(item =>
+        item.name.toLowerCase().includes(searchInput),
+      ),
+    )
+  }, [searchInput])
+
+  useEffect(() => {
+    if (searchTag !== '') {
+      setBrands(
+        [...data.brands].filter(item =>
+          item.tags.find(value => value.name === searchTag),
+        ),
+      )
+    }
+  }, [searchTag])
 
   return (
     <Container maxWidth="lg">
