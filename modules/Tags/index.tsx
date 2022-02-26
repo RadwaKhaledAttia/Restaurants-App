@@ -7,6 +7,7 @@ import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material'
 import data from '../../data.json'
 import { Tag } from '../../inteface'
 import TagCard from './components/Tag'
+import { Store, useStore } from '../../store'
 
 interface Props {
   className?: any
@@ -31,8 +32,9 @@ const SamplePrevArrow: FC<Props> = props => {
 }
 
 const MenuTags = () => {
+  const { searchTag } = useStore((state: Store) => state)
   const [menuTags, setMenuTags] = useState<Tag[]>([])
-  const [selectedTag, setSelectedTag] = useState<string | undefined>()
+  const [selectedTag, setSelectedTag] = useState<string | undefined>(searchTag)
 
   useEffect(() => {
     const getTags = pluck('tags')
